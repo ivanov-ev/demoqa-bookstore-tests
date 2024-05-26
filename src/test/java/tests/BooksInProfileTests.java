@@ -24,6 +24,7 @@ import static specs.BookstoreBooksPostSpec.BookstoreBooksPostResponseSpec;
 
 
 @Tag("all_tests")
+@DisplayName("Tests for books in a user profile")
 @Feature("demoqa")
 @Story("books")
 @Owner("ivanov-ev")
@@ -116,14 +117,17 @@ public class BooksInProfileTests extends TestBase{
           });
 
 
+        step("Main step: Delete the book from the user profile via the UI", () -> {
+            ProfilePage profilePage = new ProfilePage();
+            profilePage.openProfilePage()
+                    .deleteBook();
+        });
 
-          step("Main step: Delete the book from the user profile via the UI. " +
-                  "Check that the book is successfully deleted", () -> {
-              ProfilePage profilePage = new ProfilePage();
-              profilePage.openProfilePage()
-                      .deleteBook()
-                      .profileDoesNotContainDeletedBook(isbn);
-          });
+
+        step("Main step: Check that the book is successfully deleted.", () -> {
+            ProfilePage profilePage = new ProfilePage();
+            profilePage.profileDoesNotContainDeletedBook(isbn);
+        });
 
     }
 }
