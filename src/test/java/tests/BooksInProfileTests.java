@@ -117,16 +117,12 @@ public class BooksInProfileTests extends TestBase{
           });
 
 
-        step("Main step: Delete the book from the user profile via the UI", () -> {
+        step("Main step: Delete the book from the user profile via the UI. " +
+                "Check the book is successfully deleted.", () -> {
             ProfilePage profilePage = new ProfilePage();
             profilePage.openProfilePage()
-                    .deleteBook();
-        });
-
-
-        step("Main step: Check that the book is successfully deleted.", () -> {
-            ProfilePage profilePage = new ProfilePage();
-            profilePage.profileDoesNotContainDeletedBook(isbn);
+                    .deleteBook()
+                    .profileDoesNotContainDeletedBook(isbn);
         });
 
     }
