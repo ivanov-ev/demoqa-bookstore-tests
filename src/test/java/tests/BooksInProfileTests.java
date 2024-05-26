@@ -2,26 +2,19 @@ package tests;
 
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.*;
-import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
-import io.restassured.response.Response;
 import models.*;
 import org.junit.jupiter.api.*;
 import pages.*;
 import org.openqa.selenium.Cookie;
-import specs.BookstoreBooksDeleteSpec;
-import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
-import static java.lang.String.format;
 import static specs.AccountLoginSpec.AccountLoginRequestSpec;
 import static specs.AccountLoginSpec.AccountLoginResponseSpec;
 import static specs.BookstoreBooksDeleteSpec.BookstoreBooksDeleteRequestSpec;
