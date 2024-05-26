@@ -33,13 +33,6 @@ public class BooksInProfileTests extends TestBase{
     public String accountLoginUserID, accountLoginToken;
     public String isbn = "9781449365035";
 
-    @BeforeAll
-    public static void configureRestAssured() {
-        RestAssured.baseURI = "https://demoqa.com";
-        RestAssured.basePath = "/";
-        RestAssured.defaultParser = Parser.JSON;
-    }
-
     @Test
     @DisplayName("Delete a book from a user profile")
     void DeleteBookFromProfileTest() {

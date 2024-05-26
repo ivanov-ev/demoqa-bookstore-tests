@@ -2,6 +2,8 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import helpers.Attach;
+import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -31,6 +33,13 @@ public class TestBase {
                 "enableVideo",true
         ));
         Configuration.browserCapabilities = capabilities;
+    }
+
+    @BeforeAll
+    public static void configureRestAssured() {
+        RestAssured.baseURI = "https://demoqa.com";
+        RestAssured.basePath = "/";
+        RestAssured.defaultParser = Parser.JSON;
     }
 
     void addAttachments() {
